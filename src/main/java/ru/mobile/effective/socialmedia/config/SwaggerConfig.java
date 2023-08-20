@@ -1,6 +1,7 @@
 package ru.mobile.effective.socialmedia.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
@@ -21,14 +22,15 @@ import org.springframework.context.annotation.Configuration;
                                         email = "kovtynov.vladimir@gmail.com")
                         )
         )
-//@SecurityScheme
-//        (
-//                name = "JWT",
-//                type = SecuritySchemeType.HTTP,
-//                description = "JWT auth description",
-//                bearerFormat = "JWT",
-//                scheme = "bearer"
-//        )
+@SecurityScheme
+        (
+                name = "JWT",
+                type = SecuritySchemeType.HTTP,
+                description = "JWT auth description",
+                bearerFormat = "JWT",
+                scheme = "bearer",
+                in = SecuritySchemeIn.HEADER
+        )
 public class SwaggerConfig {
 
     @Bean
