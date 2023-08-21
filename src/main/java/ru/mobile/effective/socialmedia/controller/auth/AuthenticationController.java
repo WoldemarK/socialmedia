@@ -1,4 +1,5 @@
 package ru.mobile.effective.socialmedia.controller.auth;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,11 @@ public class AuthenticationController {
 
     private final AuthenticationService service;
 
+    @Operation
+            (
+                    summary = "Регистрация нового пользователя",
+                    description = "Регистрация нового пользователя"
+            )
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody
                                                                @Parameter(description = "RegisterRequest, DTO на выбранные поля User")
